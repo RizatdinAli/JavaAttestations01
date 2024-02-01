@@ -1,31 +1,39 @@
 package src.model;
 
+
 import java.time.LocalDateTime;
 
 public class User {
     private String id;
-    private LocalDateTime registrationDate;
+    private LocalDateTime dateAdded;
     private String login;
     private String password;
     private String confirmPassword;
-    private String lastName;
-    private String firstName;
-    private String middleName;
+    private String surname;
+    private String name;
+    private String patronymic;
     private int age;
     private boolean isWorker;
 
-    public User(String id, LocalDateTime registrationDate, String login, String password, String confirmPassword,
-                String lastName, String firstName, String middleName, int age, boolean isWorker) {
+    public User() {
+
+    }
+
+    private User(String id, LocalDateTime dateAdded, String login, String password, String confirmPassword, String surname, String name, String patronymic, int age, boolean isWorker) {
         this.id = id;
-        this.registrationDate = registrationDate;
+        this.dateAdded = dateAdded;
         this.login = login;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.middleName = middleName;
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
         this.age = age;
         this.isWorker = isWorker;
+    }
+
+    public static User createUser(String id, LocalDateTime dateAdded, String login, String password, String confirmPassword, String surname, String name, String patronymic, int age, boolean isWorker) {
+        return new User(id, dateAdded, login, password, confirmPassword, surname, name, patronymic, age, isWorker);
     }
 
     public String getId() {
@@ -36,12 +44,12 @@ public class User {
         this.id = id;
     }
 
-    public LocalDateTime getRegistrationDate() {
-        return registrationDate;
+    public LocalDateTime getDateAdded() {
+        return dateAdded;
     }
 
-    public void setRegistrationDate(LocalDateTime registrationDate) {
-        this.registrationDate = registrationDate;
+    public void setDateAdded(LocalDateTime dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public String getLogin() {
@@ -68,28 +76,28 @@ public class User {
         this.confirmPassword = confirmPassword;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMiddleName() {
-        return middleName;
+    public String getPatronymic() {
+        return patronymic;
     }
 
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 
     public int getAge() {
@@ -106,5 +114,12 @@ public class User {
 
     public void setWorker(boolean worker) {
         isWorker = worker;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                '}';
     }
 }
